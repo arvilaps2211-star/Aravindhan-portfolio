@@ -1,0 +1,153 @@
+{
+    "profile": {
+        "name": "Aravindhan M",
+        "title": "Aspiring Software Developer & Data Analytics Enthusiast",
+        "description": "Passionate about building technical skills in software development and data analytics with hands-on experience in machine learning through internships and job simulations.",
+        "tagline": "Building Logic. Creating Impact.",
+        "about": "Aspiring Software Developer with a strong interest in software development and data analytics. Passionate about building technical skills, learning new technologies, and contributing to innovative projects.",
+        "aboutTitle": "Bridging Theory & Practice",
+        "aboutDescription1": "I'm an aspiring software developer with a strong passion for technology and innovation. My journey began with exploring programming fundamentals in Python and Java, and has evolved into hands-on experience with machine learning through my internship at Global Techno Solutions.",
+        "aboutDescription2": "Currently building my foundation through practical experience and continuous learning, I focus on bridging the gap between theoretical data science and real-world application.",
+        "education": {
+            "title": "Computer Science and Engineering",
+            "institution": "Sri Muthukumaran Institute of Technology, Chennai",
+            "duration": "2022 – 2026"
+        },
+        "stats": {
+            "projects": "10+",
+            "certificates": "8+",
+            "simulations": "5"
+        },
+        "interests": ["Data Analytics", "Technology Research", "Software Development", "Machine Learning", "Cloud Computing"]
+    },
+    "experiences": [
+        {
+            "id": 1,
+            "title": "Machine Learning Internship",
+            "company": "Global Techno Solutions",
+            "date": "2024 - Present",
+            "description": "Applied algorithms and data analysis skills in real-time tasks, developing analytical thinking crucial for software development. Worked directly with production data to optimize model performance and gained hands-on experience in the full ML lifecycle.",
+            "tags": ["Machine Learning", "Data Analysis", "Algorithms", "Python"],
+            "icon": "robot"
+        },
+        {
+            "id": 2,
+            "title": "Data Analytics Job Simulation",
+            "company": "Deloitte Australia",
+            "date": "Completed 2024",
+            "description": "Completed real-world scenarios simulating professional data analytics work. Analyzed client datasets to uncover trends and presented actionable insights using visualization tools.",
+            "tags": ["Data Analytics", "Data Visualization", "Consulting", "Problem Solving"],
+            "icon": "chart-line"
+        },
+        {
+            "id": 3,
+            "title": "Technology Consulting Job Simulation",
+            "company": "Accenture",
+            "date": "Completed 2024",
+            "description": "Completed practical tasks in project kickoff, requirements gathering, application design, and creating agile stories. Tackled complex business and data analytics problems.",
+            "tags": ["Technology Consulting", "Requirements Gathering", "Agile", "Problem Solving"],
+            "icon": "briefcase"
+        },
+        {
+            "id": 4,
+            "title": "Web Development Internship",
+            "company": "Empower Guiding Centre",
+            "date": "Feb 15 - Mar 8, 2024",
+            "description": "Successfully completed 15-day web development internship including project work. Performance during the internship was commended by the mentor.",
+            "tags": ["Web Development", "Frontend", "Project Work", "Internship"],
+            "icon": "code"
+        }
+    ],
+    "certificates": [
+        {
+            "id": 1,
+            "title": "AWS Cloud Practitioner Essentials",
+            "organization": "Amazon Web Services",
+            "date": "Completed: Dec 03, 2025",
+            "description": "Completed comprehensive training on AWS Cloud fundamentals, services, security, architecture, pricing, and support.",
+            "verifyUrl": "#"
+        },
+        {
+            "id": 2,
+            "title": "Data Fundamentals",
+            "organization": "IBM SkillsBuild",
+            "date": "Issued: Jul 24, 2025",
+            "description": "Successfully completed requirements for Data Fundamentals, covering essential data concepts, analysis techniques, and practical applications.",
+            "verifyUrl": "https://www.credly.com/badges/4e87fe1a-cc4a-4ba7-bb65-88f4b00668f0"
+        },
+        {
+            "id": 3,
+            "title": "TCS iON Career Edge - Young Professional",
+            "organization": "Tata Consultancy Services",
+            "date": "Jul 26 - Aug 09, 2025",
+            "description": "Comprehensive course covering communication skills, presentation skills, soft skills, career guidance, resume writing, interview skills, business etiquette, and foundational IT skills.",
+            "verifyUrl": "#"
+        },
+        {
+            "id": 4,
+            "title": "Data Analytics Job Simulation",
+            "organization": "Deloitte Australia",
+            "date": "Issued: July 17th, 2025",
+            "description": "Completed practical tasks in data analysis and forensic technology. Certificate of Completion from Deloitte.",
+            "verifyUrl": "#"
+        },
+        {
+            "id": 5,
+            "title": "Technology Consulting Job Simulation",
+            "organization": "Accenture",
+            "date": "Issued: July 23rd, 2025",
+            "description": "Completed practical tasks in project kickoff, requirements gathering, voting application design, and creating agile stories.",
+            "verifyUrl": "#"
+        },
+        {
+            "id": 6,
+            "title": "Web Development Internship Certificate",
+            "organization": "Empower Guiding Centre",
+            "date": "March 2024",
+            "description": "Successfully completed web development internship including project from 15th Feb 2024 to 8th March 2024 (15 days). Performance during the internship was commended.",
+            "verifyUrl": "#"
+        }
+    ],
+    "skills": [
+        {
+            "category": "Programming & Development",
+            "items": [
+                { "name": "Python", "percent": 80, "icon": "python" },
+                { "name": "Java", "percent": 60, "icon": "java" },
+                { "name": "SQL", "percent": 75, "icon": "database" },
+                { "name": "HTML/CSS/JS", "percent": 70, "icon": "code" }
+            ]
+        },
+        {
+            "category": "Data & Analytics",
+            "items": [
+                { "name": "Excel", "percent": 85, "icon": "file-excel" },
+                { "name": "Machine Learning", "percent": 65, "icon": "brain" },
+                { "name": "Data Analytics", "percent": 80, "icon": "chart-line" },
+                { "name": "Problem Solving", "percent": 85, "icon": "lightbulb" }
+            ]
+        },
+        {
+            "category": "Tools & Platforms",
+            "items": [
+                { "name": "Git/GitHub", "percent": 75, "icon": "git-alt" },
+                { "name": "AWS Cloud", "percent": 60, "icon": "aws" },
+                { "name": "Requirements Gathering", "percent": 70, "icon": "tasks" },
+                { "name": "Time Management", "percent": 90, "icon": "clock" }
+            ]
+        }
+    ],
+    "social": {
+        "github": "https://github.com/yourusername",
+        "linkedin": "https://www.linkedin.com/in/aravindhan-m-62a403342",
+        "email": "aravind250904@gmail.com",
+        "location": "Chennai, India"
+    },
+    "content": {
+        "experienceSubtitle": "These experiences helped me bridge the gap between theoretical knowledge and practical application, preparing me for real-world software development challenges.",
+        "certificatesSubtitle": "Establishing credibility through continuous learning and formal mastery.",
+        "skillsSubtitle": "A comprehensive overview of my technical capabilities and proficiency levels.",
+        "contactSubtitle": "I bring fresh perspective, strong analytical skills, and a genuine passion for learning and growth in software development.",
+        "experienceQuote": "I believe in learning by doing, which is why I've completed multiple job simulations with industry leaders like Deloitte Australia and Accenture."
+    }
+}

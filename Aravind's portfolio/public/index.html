@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aravindhan M | Software Developer & Data Analyst</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png.jpeg">
+</head>
+<body>
+    <!-- Notification Toast -->
+    <div id="notificationToast" class="notification-toast">
+        <span id="notificationMessage"></span>
+        <button onclick="hideNotification()" class="toast-close">&times;</button>
+    </div>
+
+    <!-- Admin Login Button -->
+    <div class="admin-login-btn">
+        <button class="btn btn-primary" id="adminLoginBtn">
+            <i class="fas fa-user-shield"></i> Admin
+        </button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModalBtn">&times;</button>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminEmail">Email Address</label>
+                    <input type="email" id="adminEmail" placeholder="Enter your Mail ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-sign-in-alt"></i> Login as Admin
+                </button>
+                <p class="login-note">
+                    Default: Hint:digi + usually using Name
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-dashboard">
+        <div class="admin-header">
+            <h3>Admin Dashboard</h3>
+            <button id="closeAdminBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="admin-actions">
+            <button class="admin-btn" onclick="admin.editContent()">
+                <i class="fas fa-edit"></i> Edit Website Content
+            </button>
+            <button class="admin-btn" onclick="admin.viewMessages()">
+                <i class="fas fa-envelope"></i> View Messages
+                <span class="badge" id="messageCount">0</span>
+            </button>
+            <button class="admin-btn" onclick="admin.viewResumes()">
+                <i class="fas fa-file-pdf"></i> View Resumes
+                <span class="badge" id="resumeCount">0</span>
+            </button>
+            <button class="admin-btn" onclick="admin.manageCertificates()">
+                <i class="fas fa-certificate"></i> Manage Certificates
+            </button>
+            <button class="admin-btn" onclick="admin.editSocialLinks()">
+                <i class="fas fa-link"></i> Edit Social Links
+            </button>
+            <button class="admin-btn" onclick="admin.editProfile()">
+                <i class="fas fa-user-edit"></i> Edit Profile
+            </button>
+            <button class="admin-btn logout-btn" onclick="admin.logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout Admin
+            </button>
+        </div>
+        
+        <!-- Admin Content Area -->
+        <div id="adminContent" class="admin-content">
+            <!-- Content will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    
+                    <span> <img src="assets/logo.png" alt="notfound" height="30"> </span>
+                    <span>Aravindhan</span>
+                    
+                </div>
+                
+                <div class="nav-links">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#certificates">Certificates</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#contact">Contact</a>
+                    
+                    <div class="social-icons">
+                        <a href="https://github.com/arvilaps2211-star" class="social-icon" id="githubLink" title="GitHub" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aravindhan-m-62a403342" class="social-icon" id="linkedinLink" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        <span class="highlight" id="heroTitle">Aravindhan M</span><br>
+                        <span id="heroSubtitle">Aspiring Software Developer & Data Analytics Enthusiast</span>
+                    </h1>
+                    <p id="heroDescription">
+                        Passionate about building technical skills in software development and data analytics with hands-on experience in machine learning through internships and job simulations.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Let's Connect
+                        </a>
+                        <a href="#experience" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> View Experience
+                        </a>
+                        <!-- MODIFIED: Scrolls to download section -->
+                        <a href="#contact" class="btn btn-outline" id="downloadResumeBtn">
+                            <i class="fas fa-download"></i> Download Resume
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <p class="image-caption" id="heroTagline">Building Logic. Creating Impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p class="section-subtitle" id="aboutSubtitle">
+                Aspiring Software Developer with a strong interest in software development and data analytics. Passionate about building technical skills, learning new technologies, and contributing to innovative projects.
+            </p>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 id="aboutTitle">Bridging Theory & Practice</h2>
+                    <p id="aboutDescription1">
+                        I'm an aspiring software developer with a strong passion for technology and innovation. My journey began with exploring programming fundamentals in Python and Java, and has evolved into hands-on experience with machine learning through my internship at Global Techno Solutions.
+                    </p>
+                    <p id="aboutDescription2">
+                        Currently building my foundation through practical experience and continuous learning, I focus on bridging the gap between theoretical data science and real-world application.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" id="projectsCount">10+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="certificatesCount">8+</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="simulationsCount">5</div>
+                            <div class="stat-label">Job Simulations</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-text">
+                    <h2>Education</h2>
+                    <div class="education-card">
+                        <h3 id="educationTitle">Computer Science and Engineering</h3>
+                        <p id="educationInstitution">Sri Muthukumaran Institute of Technology, Chennai</p>
+                        <p id="educationDuration">2022 – 2026</p>
+                    </div>
+                    
+                    <div class="interests-section">
+                        <h3>Professional Interests</h3>
+                        <div class="interests-tags" id="interestsList">
+                            <!-- Interests will be loaded from JSON -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience & Projects</h2>
+            <p class="section-subtitle" id="experienceSubtitle">
+                These experiences helped me bridge the gap between theoretical knowledge and practical application, preparing me for real-world software development challenges.
+            </p>
+            
+            <div class="experience-cards" id="experienceList">
+                <!-- Experiences will be loaded from JSON -->
+            </div>
+            
+            <div class="quote-section">
+                <p id="experienceQuote">
+                    <i class="fas fa-quote-left"></i>
+                    I believe in learning by doing, which is why I've completed multiple job simulations with industry leaders like Deloitte Australia and Accenture.
+                    <i class="fas fa-quote-right"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <p class="section-subtitle" id="certificatesSubtitle">
+                Establishing credibility through continuous learning and formal mastery.
+            </p>
+            
+            <div class="certificates-grid" id="certificatesList">
+                <!-- Certificates will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle" id="skillsSubtitle">
+                A comprehensive overview of my technical capabilities and proficiency levels.
+            </p>
+            
+            <div class="skills-container" id="skillsList">
+                <!-- Skills will be loaded from JSON -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Build Something Great?</h2>
+            <p class="section-subtitle" id="contactSubtitle">
+                I bring fresh perspective, strong analytical skills, and a genuine passion for learning and growth in software development.
+            </p>
+            
+            <div class="contact-container">
+                <!-- Resume Download Section -->
+                <div class="resume-download-section" id="resumeDownloadAnchor">
+                    <a href="assets/resume.pdf" download="Aravindhan-Complete-Resume.pdf" class="btn btn-primary">
+                        <i class="fas fa-download"></i> DOWNLOAD MY COMPLETE RESUME
+                    </a>
+                    <p class="admin-note">
+                        <i class="fas fa-lock"></i> Owner Access: I have full editing access to modify content anytime. All inquiries are forwarded to my administration email for review.
+                    </p>
+                </div>
+                
+                <!-- Contact Form -->
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="arvi@example.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" placeholder="How can we collaborate? Let's discuss potential opportunities..." required></textarea>
+                    </div>
+                    
+                    <!-- Document Upload Section -->
+                    <div class="form-group">
+                        <label>Upload Document (Optional - PDF, DOC, DOCX)</label>
+                        <div class="upload-resume" onclick="document.getElementById('resumeFile').click()">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload document (Max 5MB)</p>
+                            <input type="file" id="resumeFile" accept=".pdf,.doc,.docx" style="display: none;">
+                        </div>
+                        <div id="filePreview"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> SEND MESSAGE
+                    </button>
+                    <p class="message-note">
+                        Your message will be sent directly to Aravindhan's administrative email.
+                    </p>
+                </form>
+                
+                <!-- Stats Section -->
+                <div class="stats">
+                    <div class="stat">
+                        <h3 id="totalMessages">0</h3>
+                        <p>Total Messages</p>
+                    </div>
+                    <div class="stat">
+                        <h3 id="totalResumes">0</h3>
+                        <p>Documents Received</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 id="footerName">Aravindhan M</h3>
+                    <p id="footerBio">Aspiring Software Developer & Data Analytics Enthusiast. Bridging the gap between theoretical knowledge and practical application to build meaningful digital solutions.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/arvilaps2211-star" class="social-icon" id="footerGithubLink" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aravindhan-m-62a403342" class="social-icon" id="footerLinkedinLink" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Me</a></li>
+                        <li><a href="#experience"><i class="fas fa-chevron-right"></i> Experience</a></li>
+                        <li><a href="#certificates"><i class="fas fa-chevron-right"></i> Certificates</a></li>
+                        <li><a href="#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:aravind250904@gmail.com" id="footerEmail">
+                            <i class="fas fa-envelope"></i> aravind250904@gmail.com
+                        </a></li>
+                        <li><a href="#" id="footerLocation">
+                            <i class="fas fa-map-marker-alt"></i> Chennai, India
+                        </a></li>
+                    </ul>
+                    <div class="footer-action">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-comments"></i> START A CONVERSATION
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; <span id="currentYear">2025</span> Aravindhan M. All rights reserved.</p>
+                <p>Designed with precision and passion for technology.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Content Editor Modal -->
+    <div id="editorModal" class="modal">
+        <div class="modal-content large-modal">
+            <button class="close-modal" id="closeEditorBtn">&times;</button>
+            <h2>Edit Content</h2>
+            <div class="editor-tabs">
+                <button class="tab-btn active" data-tab="profile">Profile</button>
+                <button class="tab-btn" data-tab="experience">Experience</button>
+                <button class="tab-btn" data-tab="certificates">Certificates</button>
+                <button class="tab-btn" data-tab="skills">Skills</button>
+                <button class="tab-btn" data-tab="social">Social Links</button>
+            </div>
+            
+            <div class="tab-content active" id="profileTab">
+                <div class="form-group">
+                    <label>Hero Title</label>
+                    <input type="text" id="editHeroTitle" class="editor-input">
+                </div>
+                <div class="form-group">
+                    <label>Hero Subtitle</label>
+                    <input type="text" id="editHeroSubtitle" class="editor-input">
+                </div>
+                <div class="form-group">
+                    <label>Hero Description</label>
+                    <textarea id="editHeroDescription" class="editor-input" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>About Description</label>
+                    <textarea id="editAboutDescription" class="editor-input" rows="5"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="admin.saveProfile()">Save Profile Changes</button>
+            </div>
+            
+            <div class="tab-content" id="experienceTab">
+                <div id="experienceEditorList">
+                    <!-- Experience items will be loaded here -->
+                </div>
+                <button class="btn btn-outline" onclick="admin.addExperience()">
+                    <i class="fas fa-plus"></i> Add New Experience
+                </button>
+            </div>
+            
+            <div class="tab-content" id="certificatesTab">
+                <div id="certificatesEditorList">
+                    <!-- Certificate items will be loaded here -->
+                </div>
+                <button class="btn btn-outline" onclick="admin.addCertificate()">
+                    <i class="fas fa-plus"></i> Add New Certificate
+                </button>
+            </div>
+            
+            <div class="tab-content" id="skillsTab">
+                <div id="skillsEditorList">
+                    <!-- Skill items will be loaded here -->
+                </div>
+                <button class="btn btn-outline" onclick="admin.addSkill()">
+                    <i class="fas fa-plus"></i> Add New Skill
+                </button>
+            </div>
+            
+            <div class="tab-content" id="socialTab">
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="url" id="editGithubUrl" class="editor-input" placeholder="https://github.com/arvilaps2211-star">
+                </div>
+                <div class="form-group">
+                    <label>LinkedIn URL</label>
+                    <input type="url" id="editLinkedinUrl" class="editor-input" placeholder="https://www.linkedin.com/in/aravindhan-m-62a403342">
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="editEmail" class="editor-input" placeholder="aravind250904@gmail.com">
+                </div>
+                <button class="btn btn-primary" onclick="admin.saveSocialLinks()">Save Social Links</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Load content from JSON
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    window.portfolioData = data;
+                    loadContent(data);
+                })
+                .catch(error => {
+                    console.error('Error loading data:', error);
+                    window.portfolioData = getDefaultData();
+                    loadContent(window.portfolioData);
+                });
+            
+            // Download Resume button scrolls to download section
+            document.getElementById('downloadResumeBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector('#resumeDownloadAnchor').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+            
+            // File upload preview
+            document.getElementById('resumeFile').addEventListener('change', function(e) {
+                const filePreview = document.getElementById('filePreview');
+                if (this.files.length > 0) {
+                    const file = this.files[0];
+                    filePreview.innerHTML = `
+                        <div class="file-preview-item">
+                            <i class="fas fa-file"></i>
+                            <span>${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)</span>
+                        </div>
+                    `;
+                } else {
+                    filePreview.innerHTML = '';
+                }
+            });
+            
+            // Contact form submission WITH POPUP
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                const fileInput = document.getElementById('resumeFile');
+                const file = fileInput.files[0];
+                const hasFile = file ? true : false;
+                
+                // Create message object
+                const messageObj = {
+                    name: name,
+                    email: email,
+                    message: message,
+                    hasDocument: hasFile,
+                    timestamp: new Date().toISOString()
+                };
+                
+                // If file exists, read it and store as Base64
+                if (hasFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        messageObj.documentName = file.name;
+                        messageObj.documentType = file.type;
+                        messageObj.documentSize = file.size;
+                        messageObj.documentData = e.target.result.split(',')[1]; // Base64 without prefix
+                        
+                        // Save message
+                        saveMessageToStorage(messageObj, hasFile);
+                    };
+                    reader.readAsDataURL(file); // Read as Base64
+                } else {
+                    // Save message without document
+                    saveMessageToStorage(messageObj, false);
+                }
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                document.getElementById('filePreview').innerHTML = '';
+            });
+            
+            // Load existing counts
+            updateCounters();
+        });
+        
+        // Save message to storage and show notification
+        function saveMessageToStorage(messageObj, hasFile) {
+            let messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+            messages.push(messageObj);
+            localStorage.setItem('portfolioMessages', JSON.stringify(messages));
+            
+            // Update counters
+            updateCounters();
+            
+            // SHOW POPUP NOTIFICATION
+            let popupMessage = `✅ Message sent successfully!`;
+            if (hasFile && messageObj.documentName) {
+                popupMessage += `\n📄 Document "${messageObj.documentName}" received.`;
+            }
+            showNotification(popupMessage);
+        }
+        
+        // Update counters
+        function updateCounters() {
+            const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+            const totalMessages = messages.length;
+            const totalResumes = messages.filter(m => m.hasDocument).length;
+            
+            document.getElementById('totalMessages').textContent = totalMessages;
+            document.getElementById('totalResumes').textContent = totalResumes;
+            
+            // Update admin badges
+            const messageCount = document.getElementById('messageCount');
+            const resumeCount = document.getElementById('resumeCount');
+            if (messageCount) {
+                messageCount.textContent = totalMessages;
+                messageCount.style.display = totalMessages > 0 ? 'inline' : 'none';
+            }
+            if (resumeCount) {
+                resumeCount.textContent = totalResumes;
+                resumeCount.style.display = totalResumes > 0 ? 'inline' : 'none';
+            }
+        }
+        
+        // Notification functions
+        function showNotification(message) {
+            const toast = document.getElementById('notificationToast');
+            const messageElement = document.getElementById('notificationMessage');
+            
+            messageElement.textContent = message;
+            toast.classList.add('show');
+            
+            // Auto hide after 4 seconds
+            setTimeout(hideNotification, 4000);
+        }
+        
+        function hideNotification() {
+            const toast = document.getElementById('notificationToast');
+            toast.classList.remove('show');
+        }
+        
+        // Admin functions - FIXED DOWNLOAD
+        window.admin = {
+            // ... existing functions from admin.js ...
+            
+            viewMessages: function() {
+                const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+                let html = '<h3>Received Messages</h3>';
+                
+                if (messages.length === 0) {
+                    html += '<p>No messages received yet.</p>';
+                } else {
+                    html += '<div class="message-list">';
+                    messages.forEach((msg, index) => {
+                        html += `
+                            <div class="message-item">
+                                <div class="message-header">
+                                    <strong>${msg.name}</strong> (${msg.email})
+                                    <span class="message-time">${new Date(msg.timestamp).toLocaleString()}</span>
+                                </div>
+                                <p class="message-text">${msg.message}</p>
+                                ${msg.hasDocument ? 
+                                    `<div class="message-document">
+                                        <i class="fas fa-paperclip"></i>
+                                        <span>Document: ${msg.documentName} (${(msg.documentSize / 1024).toFixed(1)} KB)</span>
+                                        <button onclick="admin.downloadActualDocument(${index})" class="btn-download-doc">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                    </div>` 
+                                    : ''
+                                }
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+                
+                document.getElementById('adminContent').innerHTML = html;
+            },
+            
+            // FIXED: Actually downloads the uploaded document
+            downloadActualDocument: function(messageIndex) {
+                const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+                const message = messages[messageIndex];
+                
+                if (message && message.hasDocument && message.documentData) {
+                    try {
+                        // Convert Base64 back to blob
+                        const byteCharacters = atob(message.documentData);
+                        const byteNumbers = new Array(byteCharacters.length);
+                        for (let i = 0; i < byteCharacters.length; i++) {
+                            byteNumbers[i] = byteCharacters.charCodeAt(i);
+                        }
+                        const byteArray = new Uint8Array(byteNumbers);
+                        const blob = new Blob([byteArray], { type: message.documentType || 'application/octet-stream' });
+                        
+                        // Create download link
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement('a');
+                        link.href = url;
+                        link.download = message.documentName || `document_${messageIndex + 1}`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+                        
+                        console.log('✅ Document downloaded successfully:', message.documentName);
+                    } catch (error) {
+                        console.error('❌ Error downloading document:', error);
+                        alert('Error downloading document. Please try again.');
+                    }
+                } else {
+                    console.warn('⚠️ No document data found for message:', messageIndex);
+                    alert('Document data not found or corrupted.');
+                }
+            },
+            
+            viewResumes: function() {
+                const messages = JSON.parse(localStorage.getItem('portfolioMessages') || '[]');
+                const documents = messages.filter(m => m.hasDocument);
+                
+                let html = '<h3>Received Documents</h3>';
+                
+                if (documents.length === 0) {
+                    html += '<p>No documents received yet.</p>';
+                } else {
+                    html += `
+                        <div class="document-list">
+                            <div class="document-header">
+                                <div>Document Name</div>
+                                <div>From</div>
+                                <div>Size</div>
+                                <div>Action</div>
+                            </div>
+                    `;
+                    
+                    documents.forEach((doc, index) => {
+                        const originalIndex = messages.indexOf(doc);
+                        html += `
+                            <div class="document-item">
+                                <div class="doc-name">
+                                    <i class="fas fa-file-pdf"></i>
+                                    ${doc.documentName}
+                                </div>
+                                <div class="doc-from">${doc.name} (${doc.email})</div>
+                                <div class="doc-size">${(doc.documentSize / 1024).toFixed(1)} KB</div>
+                                <div class="doc-action">
+                                    <button onclick="admin.downloadActualDocument(${originalIndex})" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-download"></i> Download
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    html += '</div>';
+                }
+                
+                document.getElementById('adminContent').innerHTML = html;
+            }
+        };
+    </script>
+    
+    <style>
+        /* Notification Toast Styles */
+        .notification-toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+            max-width: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            white-space: pre-line;
+        }
+        
+        .notification-toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+        
+        /* Admin Message Styles */
+        .message-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .message-item {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .message-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .message-time {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .message-text {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        
+        .message-document {
+            background: #e9f7fe;
+            border: 1px solid #b3e5fc;
+            border-radius: 3px;
+            padding: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-download-doc {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .btn-download-doc:hover {
+            background: #218838;
+        }
+        
+        /* Document List Styles */
+        .document-list {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .document-header {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr 1fr;
+            gap: 15px;
+            padding: 10px;
+            background: #f1f3f4;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        
+        .document-item {
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr 1fr;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            align-items: center;
+        }
+        
+        .doc-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+    </style>
+
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDNuDBu8lnfZNC33S4cIaxTPK55dQyxNxE",
+    authDomain: "aravindhan-portfolio.firebaseapp.com",
+    projectId: "aravindhan-portfolio",
+    storageBucket: "aravindhan-portfolio.firebasestorage.app",
+    messagingSenderId: "765735829558",
+    appId: "1:765735829558:web:d0e0e906775ae696cf1897",
+    measurementId: "G-LQV7G81VR2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
+
+</body>
+</html>
